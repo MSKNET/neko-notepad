@@ -51,18 +51,18 @@ main(void)
 				&rom_not_found[row * 11], 11
 			);
 		}
-	} else if (hash(SERIAL_NO) != VALID_HASH) {
-		size_t msg_len = strlen(ROM->anti_piracy) + strlen(SERIAL_NO);
-		char *msg = check_ptr(malloc(msg_len));
-		strcpy(msg, ROM->anti_piracy);
-		strcat(msg, SERIAL_NO);
-		SAT_STRING s = {
-			.begin   = msg,
-			.cursor  = msg,
-			.end     = msg + msg_len,
-			.aligned = TRUE
-		};
-		bitmap_blit(&s, ROM->fonts[0]);
+	// } else if (hash(SERIAL_NO) != VALID_HASH) {
+	// 	size_t msg_len = strlen(ROM->anti_piracy) + strlen(SERIAL_NO);
+	// 	char *msg = check_ptr(malloc(msg_len));
+	// 	strcpy(msg, ROM->anti_piracy);
+	// 	strcat(msg, SERIAL_NO);
+	// 	SAT_STRING s = {
+	// 		.begin   = msg,
+	// 		.cursor  = msg,
+	// 		.end     = msg + msg_len,
+	// 		.aligned = TRUE
+	// 	};
+	// 	bitmap_blit(&s, ROM->fonts[0]);
 	} else {
 		return note_explorer(NULL);
 	}

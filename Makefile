@@ -19,7 +19,7 @@ LD := $(TARGET)-ld
 
 ELF2HP ?= elf2hp
 HP2APT ?= ./hp2aplet
-KEYGEN ?= ./keygen
+# KEYGEN ?= ./keygen
 
 SRC ?= $(wildcard *.c)
 OBJ ?= $(SRC:%.c=%.o)
@@ -32,7 +32,7 @@ CFLAGS ?= -std=c99 -Wall -Os -I$(INC) -L$(LIB) \
 	-fomit-frame-pointer -fdata-sections -ffunction-sections
 
 crt0.o: CFLAGS += -msingle-pic-base -fpic -mpic-register=r10
-main.o: CFLAGS += -DVALID_HASH=$(shell $(KEYGEN) $(SN))
+# main.o: CFLAGS += -DVALID_HASH=$(shell $(KEYGEN) $(SN))
 
 LDFLAGS := -L$(LIB) -T MMUld.script -lhplib -lgcc -static --gc-sections
 
